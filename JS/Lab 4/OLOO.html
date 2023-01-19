@@ -1,0 +1,55 @@
+<script>
+  // Muhammad Ashraf Ali - OS - OLOO
+  let Person = {
+    init(fullName, money, sleepMood, healthRate) {
+      this.fullName = fullName;
+      this.money = money;
+      this.sleepMood = sleepMood;
+      this.healthRate = healthRate;
+      return this;
+    },
+
+    sleep(hours) {
+      if (hours == 7) {
+        this.sleepMood = "happy";
+      } else if (hours < 7) {
+        this.sleepMood = "tired";
+      } else if (hours > 7) {
+        this.sleepMood = "lazy";
+      }
+
+      console.log(`${this.fullName}'s sleep is ${this.sleepMood}`);
+    },
+
+    eat(meals) {
+      if (meals == 3) {
+        this.healthRate = "100";
+      } else if (meals == 2) {
+        this.healthRate = "75";
+      } else if (meals == 1) {
+        this.healthRate = "50";
+      }
+
+      console.log(`${this.fullName}'s health rate is ${this.healthRate}`);
+    },
+
+    buy(itemsCount) {
+      this.money -= itemsCount * 10;
+
+      console.log(`${this.fullName}'s money is ${this.money}`);
+    },
+  };
+
+  let personObj = Object.create(Person);
+  personObj.init("Muhammad Ashraf Ali", 5000, "Happy", 3);
+
+  personObj.sleep(2);
+  personObj.sleep(7);
+  personObj.sleep(10);
+
+  personObj.eat(1);
+  personObj.eat(3);
+  personObj.eat(2);
+
+  personObj.buy(15);
+</script>
