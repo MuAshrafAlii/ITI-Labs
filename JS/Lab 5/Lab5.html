@@ -1,0 +1,286 @@
+<script>
+  // Muhammad Ashraf Ali -- OS -- Lab 5
+
+  class Person {
+    #fullName;
+    #money;
+    #sleepMood;
+    #healthRate;
+    constructor(fullName, money, sleepMood, healthRate) {
+      /* this.#fullName = fullName;
+      this.#money = money;
+      this.#sleepMood = sleepMood;
+      this.#healthRate = healthRate; */
+    }
+
+    sleep(hours) {
+      if (hours == 7) {
+        this.#sleepMood = "happy";
+      } else if (hours < 7) {
+        this.#sleepMood = "tired";
+      } else if (hours > 7) {
+        this.#sleepMood = "lazy";
+      }
+    }
+
+    eat(meals) {
+      if (meals == 3) {
+        this.#healthRate = "100";
+      } else if (meals == 2) {
+        this.#healthRate = "75";
+      } else if (meals == 1) {
+        this.#healthRate = "50";
+      }
+    }
+
+    buy(itemsCount) {
+      this.#money -= itemsCount * 10;
+    }
+
+    get fullName() {
+      return this.#fullName;
+    }
+
+    set fullName(fullName) {
+      this.#fullName = fullName;
+    }
+
+    get money() {
+      return this.#money;
+    }
+
+    set money(money) {
+      this.#money = money;
+    }
+
+    get sleepMood() {
+      return this.#sleepMood;
+    }
+
+    set sleepMood(sleepMood) {
+      this.#sleepMood = sleepMood;
+    }
+
+    get healthRate() {
+      return this.#healthRate;
+    }
+
+    set healthRate(healthRate) {
+      this.#healthRate = healthRate;
+    }
+  }
+
+  class Employee extends Person {
+    #id;
+    #email;
+    #workMood;
+    #salary;
+    #isManager;
+    constructor(
+      fullName,
+      money,
+      sleepMood,
+      healthRate,
+      id,
+      email,
+      workMood,
+      salary,
+      isManager
+    ) {
+      super(fullName, money, sleepMood, healthRate);
+      /* this.#id = id;
+      this.#email = email;
+      this.#workMood = workMood;
+      this.#salary = salary;
+      this.#isManager = isManager;
+
+       */
+    }
+
+    work(hours) {
+      if (hours == 8) {
+        this.#workMood = "happy";
+      } else if (hours < 8) {
+        this.#workMood = "lazy";
+      } else if (hours > 8) {
+        this.#workMood = "tired";
+      }
+    }
+
+    get id() {
+      return this.#id;
+    }
+
+    set id(id) {
+      this.#id = id;
+    }
+
+    get email() {
+      return this.#email;
+    }
+
+    set email(email) {
+      this.#email = email;
+    }
+
+    get workMood() {
+      return this.#workMood;
+    }
+
+    set workMood(workMood) {
+      this.#workMood = workMood;
+    }
+
+    get isManager() {
+      return this.#isManager;
+    }
+
+    set isManager(isManager) {
+      this.#isManager = isManager;
+    }
+
+    get salary() {
+      return this.#salary;
+    }
+
+    set salary(salary) {
+      this.#salary = salary;
+    }
+  }
+
+  class Office {
+    #name;
+    #employees = [];
+
+    constructor(name) {
+      this.#name = name;
+    }
+
+    get name() {
+      return this.#name;
+    }
+
+    set name(name) {
+      this.#name = name;
+    }
+
+    getAllEmployees() {
+      return this.#employees;
+    }
+
+    getEmployee(empId) {
+      for (let i = 0; i < this.#employees.length; i++) {
+        if (this.#employees[i].id == empId) {
+          return this.#employees[i];
+        }
+      }
+      alert(`Employee with ID ${empId} NOT FOUND`);
+    }
+
+    hire(emp) {
+      this.#employees.push(emp);
+    }
+
+    fire(empId) {
+      this.#employees.splice(this.#employees.indexOf(empId), 1);
+    }
+  }
+
+  let officeObj = new Office("ITI");
+  let tempEmp, emp, option, question;
+
+  do {
+    option = prompt(
+      "Choose from The Following (add - remove - getOne - getAll - quit)"
+    );
+    switch (option) {
+      case "add":
+        emp = new Employee();
+        question = prompt("mngr / nrml");
+        question == "mngr" ? (emp.isManager = true) : (emp.isManager = false);
+
+        question = prompt("Please Enter Full Name");
+        emp.fullName = question;
+
+        question = prompt("Please Enter Money");
+        emp.money = question;
+
+        question = prompt("Please Enter Sleep Mood");
+        emp.sleepMood = question;
+
+        do {
+          question = prompt("Please Enter Health Rate between 0 & 100");
+          emp.healthRate = question;
+        } while (emp.healthRate < 0 || emp.healthRate > 100);
+
+        question = parseInt(prompt("Please Enter id"));
+        emp.id = question;
+
+        question = prompt("Please Enter Email");
+        emp.email = question;
+
+        question = prompt("Please Enter Work Mood");
+        emp.workMood = question;
+
+        do {
+          question = prompt("Please Enter Salary more than 1000");
+          emp.salary = question;
+        } while (emp.salary < 1000);
+
+        officeObj.hire(emp);
+        break;
+
+      case "remove":
+        question = parseInt(prompt("Please Enter Employee ID"));
+        tempEmp = officeObj.getEmployee(question);
+        if (!tempEmp) break;
+
+        alert(
+          `Employee with ID: ${tempEmp.id} and Name: ${tempEmp.fullName} FIRED`
+        );
+        officeObj.fire(question);
+        break;
+
+      case "getOne":
+        question = parseInt(prompt("Please Enter Employee ID"));
+        tempEmp = officeObj.getEmployee(question);
+
+        if (!tempEmp) break;
+
+        if (tempEmp && tempEmp.isManager) {
+          alert(`Full Name: ${tempEmp.fullName}
+        Money: ${tempEmp.money}
+        Sleep Mood: ${tempEmp.sleepMood}
+        Health Rate: ${tempEmp.healthRate}
+        ID: ${tempEmp.id}
+        Email: ${tempEmp.email}
+        Work Mood: ${tempEmp.workMood}
+        Salary: ${tempEmp.salary}
+        `);
+        } else {
+          alert(`Full Name: ${tempEmp.fullName}
+        Money: ${tempEmp.money}
+        Sleep Mood: ${tempEmp.sleepMood}
+        Health Rate: ${tempEmp.healthRate}
+        ID: ${tempEmp.id}
+        Email: ${tempEmp.email}
+        Work Mood: ${tempEmp.workMood}
+        `);
+        }
+        break;
+
+      case "getAll":
+        empReturned = officeObj.getAllEmployees();
+        if (empReturned.length > 0) {
+          let outText = "";
+          empReturned.forEach((emp) => {
+            outText += `ID: ${emp.id} and Name: ${emp.fullName} \n`;
+          });
+          alert(outText);
+        } else {
+          alert("This Office Has 0 employees");
+        }
+        break;
+    }
+  } while (option != "quit");
+</script>
