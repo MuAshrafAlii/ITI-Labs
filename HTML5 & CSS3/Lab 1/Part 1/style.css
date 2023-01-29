@@ -1,0 +1,25 @@
+.videoContainer,
+.videoControlsContainer {
+  width: 60%;
+  height: 60%;
+  margin: 0px auto;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+}
+
+.timeRange {
+  width: 85%;
+  vertical-align: middle;
+}
+
+.speedRange {
+  vertical-align: middle;
+}
+
+.timeTxt,
+.speedTxt {
+  display: inline-flex;
+}

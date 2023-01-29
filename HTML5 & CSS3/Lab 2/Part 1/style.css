@@ -1,0 +1,27 @@
+.triangle-container {
+  position: relative;
+  width: fit-content;
+}
+
+.letterA {
+  position: absolute;
+  bottom: 30%;
+  left: 35%;
+}
+
+.letterB {
+  position: absolute;
+  right: 45%;
+  top: 45%;
+}
+
+.letterC {
+  position: absolute;
+  left: 22%;
+  top: 45%;
+}
+
+math {
+  color: brown;
+  font-size: 40px;
+}

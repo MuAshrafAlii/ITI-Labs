@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <h1>Change Email Address</h1>
+    <form action="./formValidation.html" method="post">
+      <input type="text" placeholder="Username" pattern="[A-z]{5}" required />
+      <p>The Required username must be only 5 alphabetics</p>
+
+      <input
+        type="email"
+        placeholder="Email"
+        pattern="^[A-z0-9]+@[A-z0-9]+\.[A-z0-9]+$"
+        required
+      />
+      <p>
+        The Required Email must be valid and must not contain any special
+        characters other than @
+      </p>
+
+      <button type="submit">Change</button>
+    </form>
+  </body>
+</html>
