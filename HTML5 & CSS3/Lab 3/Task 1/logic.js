@@ -28,6 +28,7 @@ function showErr(x) {
 
 var options = {
   timeout: 200,
+  enableHighAccuracy: true,
 };
 
 btn.addEventListener("click", getLoc);
