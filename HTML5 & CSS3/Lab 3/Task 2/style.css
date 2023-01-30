@@ -1,0 +1,19 @@
+p {
+  margin-top: 0px;
+}
+
+input:valid {
+  border: 2px solid green;
+}
+
+input:valid + p {
+  display: none;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+
+input:focus {
+  border: 2px solid black;
+}
