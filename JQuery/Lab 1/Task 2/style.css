@@ -1,0 +1,44 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.outerContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cardContainer {
+  width: 30%;
+  height: 80%;
+}
+
+.imgContainer {
+  width: 100%;
+  height: 60%;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.textContainer {
+  margin-top: 30px;
+  padding: 30px;
+  width: 100%;
+  text-align: center;
+  background-color: brown;
+  color: wheat;
+}
