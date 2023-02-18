@@ -1,6 +1,6 @@
 $(function () {
   $("img").draggable();
-  $("img").hover(function () {
+  $("img").mouseenter(function () {
     $("img").effect("shake", {
       distance: 2,
     });
