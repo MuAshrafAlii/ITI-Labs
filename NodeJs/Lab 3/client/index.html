@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="formContainer">
+      <form class="regForm" action="./welcome.html" method="POST">
+        <h1>Register Form</h1>
+        <div class="formControl">
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            class="userNameInput"
+            pattern="[A-z]+"
+            required
+          />
+          <p class="errorTxt">Username must be alphabetic only</p>
+        </div>
+
+        <div class="formControl">
+          <input
+            type="text"
+            placeholder="Mobile"
+            class="userMobileInput"
+            pattern="^01[0125][0-9]{8}$"
+            name="tel"
+            required
+          />
+          <p class="errorTxt">Invalid Mobile Number</p>
+        </div>
+
+        <div class="formControl">
+          <input
+            type="text"
+            placeholder="Address"
+            class="userAddressInput"
+            pattern="^[A-z0-9]*$"
+            name="address"
+            required
+          />
+          <p class="errorTxt">Address is invalid</p>
+        </div>
+
+        <div class="formControl">
+          <input
+            type="email"
+            placeholder="Email"
+            class="userEmailInput"
+            pattern="[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]{2,4}$"
+            name="email"
+            required
+          />
+          <p class="errorTxt">Email is invalid</p>
+        </div>
+
+        <div class="formControl">
+          <input
+            type="password"
+            placeholder="Password"
+            class="userPasswordInput"
+            pattern="[A-z0-9]{8,}*$"
+            name="password"
+            required
+          />
+          <p class="errorTxt">Password should be alphanumeric only</p>
+        </div>
+
+        <button type="submit" class="submitBtn">Register</button>
+      </form>
+    </div>
+  </body>
+</html>
