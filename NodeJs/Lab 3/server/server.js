@@ -4,7 +4,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const app = express();
 
-var WelcomeFileHTML = fs.readFileSync("../client/welcome.html").toString();
+var welcomeHTMLFile = fs.readFileSync("../client/welcome.html").toString();
+var JSONFile = "./users.json";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,21 +17,26 @@ function joinPath(url) {
 app.get("/index.html", (req, res) => {
   res.sendFile(joinPath("../client/index.html"));
 });
+
+app.get("/showAll.html", (req, res) => {
+  res.sendFile(joinPath("../client/showAll.html"));
+});
+
 app.get("/style.css", (req, res) => {
   res.sendFile(joinPath("../client/style.css"));
 });
-/* app.get("/script.js", (req, res) => {
+app.get("/script.js", (req, res) => {
   res.sendFile(joinPath("../client/script.js"));
-}); */
+});
 app.get("/welcome.html", (req, res) => {
   res.sendFile(joinPath("../client/welcome.html"));
 });
 app.get("/favicon.ico", (req, res) => {
   res.sendFile(joinPath("../client/favicon.ico"));
 });
-/* app.get("/serverSide/users.json", (req, res) => {
+app.get("/server/users.json", (req, res) => {
   res.sendFile(joinPath("../server/users.json"));
-}); */
+});
 
 app.post(
   "/welcome.html",
@@ -41,13 +47,13 @@ app.post(
     var email = req.body["email"];
     var password = req.body["password"];
 
-    WelcomeFileHTML = WelcomeFileHTML.replace("{name}", name)
+    welcomeHTMLFile = welcomeHTMLFile
+      .replace("{name}", name)
       .replace("{tel}", tel)
       .replace("{address}", address)
       .replace("{email}", email)
       .replace("{password}", password);
 
-    /*  let users = { clients: [] };
     let user = {
       Name: name,
       Tel: tel,
@@ -56,21 +62,22 @@ app.post(
       Password: password,
     };
 
-    let clients = fs.readFile(JSONFile, "utf-8", (err, userdata) => {
-      if (err) throw err;
-      else {
-        users = JSON.parse(userdata); //Adding JSON File Data In Object
-        users.clients.push(user); //Adding Data to Object
+    fs.readFile(JSONFile, "utf-8", (err, userdata) => {
+      if (err) {
+        console.log(err);
+      } else {
+        let users = JSON.parse(userdata);
+        users.user.push(user);
         fs.writeFile(JSONFile, JSON.stringify(users), (err) => {
-          if (err) throw err;
-        }); //Adding Data To JSON File
+          console.log(err);
+        });
       }
-    }); */
+    });
 
     next();
   },
   (req, res) => {
-    res.send(WelcomeFileHTML);
+    res.send(welcomeHTMLFile);
   }
 );
 
