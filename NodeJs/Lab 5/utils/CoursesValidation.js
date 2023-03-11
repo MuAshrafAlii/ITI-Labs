@@ -8,8 +8,8 @@ const CoursesSchema = {
     teacher: { type: "string", pattern: "^[a-zA-Z]+$" },
     duration: {
       type: "number",
-      minLength: 2,
-      maxLength: 100,
+      minimum: 2,
+      maximum: 100,
     },
   },
   required: ["name", "teacher", "duration"],
