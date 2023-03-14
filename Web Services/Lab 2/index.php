@@ -3,15 +3,14 @@ require_once("./config.php");
 require_once("./functions.php");
 require_once("./MySQLHandler.php");
 
-$_DB = new MySQLHandler("products");
-$_connect = $_DB->connect();
+$db = new MySQLHandler("products");
+$dbConnector = $db->connect();
 
-if($_connect){
-    
+if($dbConnector){
     $product_id = get_product_id(); 
-    methodHandler($_DB, $product_id);
-      
-}else{
+    methodHandler($db, $product_id);
+}
+else{
     $response = ["error" => "database Not connected."];
     http_response_code(500);
     header('Content-Type: application/json');

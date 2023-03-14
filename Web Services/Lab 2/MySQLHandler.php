@@ -14,7 +14,7 @@
 class MySQLHandler {
 
     //put your code here
-    private $_db_handler;
+    private $db_handler;
     private $_table;
     private $_primary_key;
 
