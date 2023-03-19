@@ -32,7 +32,7 @@
                 <td>
                     <a href="{{route('posts.show', $post->id)}}" class="btn btn-info">View</a>
                     <a href="{{route("posts.edit", $post->id)}}" class="btn btn-primary">Edit</a>
-                    <form style="display: inline" method="POST" action="{{ route('posts.delete', ['post' => $post->id]) }}">
+                    <form style="display: inline" method="POST" action="{{ route('posts.destroy', $post->id) }}">
                         @method('DELETE')
                         @csrf
                         <button onclick="return confirm('Are you sure you want to delete this post?')" class="btn btn-danger">Delete</button>

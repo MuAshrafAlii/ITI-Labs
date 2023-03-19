@@ -23,4 +23,4 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
 
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::put('/posts', [PostController::class, 'update'])->name('posts.update');
-Route::delete('/posts/delete/{post}', [PostController::class, 'delete'])->name('posts.delete');
+Route::delete('/posts/delete/{post}', [PostController::class, 'delete'])->name('posts.destroy');
