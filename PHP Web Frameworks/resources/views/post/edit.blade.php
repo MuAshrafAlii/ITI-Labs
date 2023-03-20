@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form method="POST" action="{{route('posts.update')}}">
+    <form method="POST" action="{{route('posts.update', $post->id)}}">
         @csrf
         @method("PUT")
         <input type="hidden" name="id" value={{ $post->id }} class="form-control" id="exampleFormControlInput1">

@@ -18,8 +18,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $users = User::all();
 
-        return view('post.show', ['post' => $post]);
+        return view('post.show', [
+            'post' => $post,
+            'users' => $users
+        ]);
     }
 
     public function create() {
@@ -70,7 +74,7 @@ class PostController extends Controller
         return redirect()->route("posts.index");
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         Post::where('id', $id)->delete();
         return redirect()->route("posts.index");

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [TestController::class, 'test']);
+/* Route::get('/', [TestController::class, 'test']);
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/edit/{post}', [PostController::class, 'edit'])->name('posts.edit');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
@@ -23,4 +24,9 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
 
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::put('/posts', [PostController::class, 'update'])->name('posts.update');
-Route::delete('/posts/delete/{post}', [PostController::class, 'delete'])->name('posts.destroy');
+Route::delete('/posts/delete/{post}', [PostController::class, 'destroy'])->name('posts.destroy'); */
+
+Route::resource('posts', PostController::class);
+
+
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
