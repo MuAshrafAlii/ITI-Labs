@@ -4,6 +4,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,10 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::put('/posts', [PostController::class, 'update'])->name('posts.update');
 Route::delete('/posts/delete/{post}', [PostController::class, 'destroy'])->name('posts.destroy'); */
 
-Route::resource('posts', PostController::class);
+Route::resource('posts', PostController::class)->middleware("auth");
 
 
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

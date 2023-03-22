@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
+use App\Http\Requests\StorePostRequest;
 
 use Illuminate\Http\Request;
 
@@ -32,7 +33,7 @@ class PostController extends Controller
         return view('post.create', ["users" => $users]);
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
 
         $title = $request->title;
@@ -61,10 +62,8 @@ class PostController extends Controller
     }
 
 
-    public function update()
+    public function update(StorePostRequest $req)
     {
-
-        $req = request()->all();
         Post::where('id', $req['id'])->update([
             'title' => $req['title'],
             'description' => $req['description'],
