@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 
@@ -67,6 +68,7 @@ class PostController extends Controller
         Post::where('id', $req['id'])->update([
             'title' => $req['title'],
             'description' => $req['description'],
+            'slug' => Str::slug($req['title']),
             'user_id' => $req['post_creator']
         ]);
 
