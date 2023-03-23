@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Jobs\PruneOldPostsJob;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
@@ -42,11 +44,19 @@ class PostController extends Controller
         $description = $request->description;
         $postCreator = $request->post_creator;
 
-        Post::create([
+        $post = Post::create([
             'title' => $title,
             'description' => $description,
             'user_id' => $postCreator
         ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = $image->getClientOriginalName();
+            $path = Storage::putFileAs('posts', $image, $filename);
+            $post->image_path = $path;
+            $post->save();
+        }
 
         return redirect()->route("posts.index");
     }
@@ -64,13 +74,26 @@ class PostController extends Controller
     }
 
 
-    public function update(StorePostRequest $req)
+    public function update(UpdatePostRequest $request)
     {
-        Post::where('id', $req['id'])->update([
-            'title' => $req['title'],
-            'description' => $req['description'],
-            'slug' => Str::slug($req['title']),
-            'user_id' => $req['post_creator']
+        
+        $post = Post::findOrFail($request["id"]);
+
+        if ($request->hasFile('image')) {
+            if ($post->image_path) {
+                Storage::delete($post->image_path);
+            }
+            $image = $request->file('image');
+            $filename = $image->getClientOriginalName();
+            $path = Storage::putFileAs('posts', $image, $filename);
+            $post->image_path = $path;
+        }
+
+        $post->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'description' => $request->description,
+            'user_id' => $request->post_creator,
         ]);
 
         return redirect()->route("posts.index");
@@ -78,6 +101,12 @@ class PostController extends Controller
 
     public function destroy($id)
     {
+        $post = Post::findOrFail($id);
+
+        if ($post->image_path && Storage::exists($post->image_path)) {
+            Storage::delete($post->image_path);
+        }
+
         Post::where('id', $id)->delete();
         return redirect()->route("posts.index");
     }

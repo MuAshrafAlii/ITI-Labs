@@ -14,7 +14,7 @@
                 </ul>
             </div>
     @endif
-    <form method="POST" action="{{route('posts.update', $post->id)}}">
+    <form method="POST" action="{{route('posts.update', $post->id)}}" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <input type="hidden" name="id" value={{ $post->id }} class="form-control" id="exampleFormControlInput1">
@@ -36,6 +36,11 @@
                     <option value="{{$user->id}}">{{$user->name}}</option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputImage" class="form-label fs-4">Image </label><i class="text-secondary"> (Optional)</i>
+            <input type="file" name="image" accept=".jpg,.png" class="form-control" id="exampleInputImage">
         </div>
 
         <button class="btn btn-primary">Update</button>
