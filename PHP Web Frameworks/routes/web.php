@@ -19,14 +19,14 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [TestController::class, 'test']);
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('/posts/edit/{post}', [PostController::class, 'edit'])->name('posts.edit');
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::get("/posts/removeOld",[PostController::class, "removeOldPosts"]);
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::put('/posts', [PostController::class, 'update'])->name('posts.update');
-Route::delete('/posts/delete/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
 /* Route::get("/posts/removeOld",[PostController::class, "removeOldPosts"]);
 Route::resource('posts', PostController::class)->middleware("auth"); */
