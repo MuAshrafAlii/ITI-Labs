@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use App\Http\Requests\StorePostRequest;
+use App\Jobs\PruneOldPostsJob;
 use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
@@ -78,6 +79,11 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::where('id', $id)->delete();
+        return redirect()->route("posts.index");
+    }
+
+    public function removeOldPosts() {
+        PruneOldPostsJob::dispatch();
         return redirect()->route("posts.index");
     }
 }
