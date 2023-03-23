@@ -14,7 +14,7 @@
                 </ul>
             </div>
     @endif
-    <form method="POST" action="{{route('posts.update', $post->id)}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route('posts.update',['post' => $post['id']])}}" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <input type="hidden" name="id" value={{ $post->id }} class="form-control" id="exampleFormControlInput1">
