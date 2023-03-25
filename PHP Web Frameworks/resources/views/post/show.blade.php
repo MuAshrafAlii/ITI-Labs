@@ -3,6 +3,8 @@
 @section('title') Show @endsection
 
 @section('content')
+{{-- <img src="{{asset('/storage/posts/prog.jpg')}}" alt="err" class=""> --}}
+<img src="{{asset('/storage/' . $post->image_path)}}" class="img-fluid" alt="Responsive image">
     <div class="card mt-6">
         <div class="card-header">
            <h3>Post Info</h3>

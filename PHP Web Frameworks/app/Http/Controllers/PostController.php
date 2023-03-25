@@ -27,7 +27,8 @@ class PostController extends Controller
 
         return view('post.show', [
             'post' => $post,
-            'users' => $users
+            'users' => $users,
+            'image_path' => $post->image_path
         ]);
     }
 
@@ -53,8 +54,11 @@ class PostController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = $image->getClientOriginalName();
-            $path = Storage::putFileAs('posts', $image, $filename);
-            $post->image_path = $path;
+            $path = Storage::putFileAs('public/posts', $image, $filename);
+            $post_image = explode("/", $path);
+            array_shift($post_image);
+            $post_image = join("/", $post_image);
+            $post->image_path = $post_image;
             $post->save();
         }
 
@@ -81,12 +85,15 @@ class PostController extends Controller
 
         if ($request->hasFile('image')) {
             if ($post->image_path) {
-                Storage::delete($post->image_path);
+                Storage::delete("public/" . $post->image_path);
             }
             $image = $request->file('image');
             $filename = $image->getClientOriginalName();
-            $path = Storage::putFileAs('posts', $image, $filename);
-            $post->image_path = $path;
+            $path = Storage::putFileAs('public/posts', $image, $filename);
+            $post_image = explode("/", $path);
+            array_shift($post_image);
+            $post_image = join("/", $post_image);
+            $post->image_path = $post_image;
         }
 
         $post->update([
@@ -103,8 +110,8 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        if ($post->image_path && Storage::exists($post->image_path)) {
-            Storage::delete($post->image_path);
+        if ($post->image_path && Storage::exists("public/" . $post->image_path)) {
+            Storage::delete("public/" . $post->image_path);
         }
 
         Post::where('id', $id)->delete();
