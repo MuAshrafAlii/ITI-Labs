@@ -5,6 +5,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,9 @@ Route::post('/comments', [CommentController::class, 'store'])->name('comments.st
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/auth/github/redirect',[PostController::class,'githubredirect'])->name('githublogin');
+Route::get('/auth/github/callback',[PostController::class,'githubcallback']);
+
+Route::get('/auth/google/redirect',[PostController::class,'googleredirect'])->name('googlelogin');
+Route::get('/auth/google/callback',[PostController::class,'googlecallback']);

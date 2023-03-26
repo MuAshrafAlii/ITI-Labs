@@ -57,11 +57,11 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                <a href="#" class="btn btn-dark">
+                                <a href="/auth/github/redirect" class="btn btn-dark">
                                     {{ __('Login With Github') }}
                                 </a>
 
-                                <a href="#" class="btn btn-success">
+                                <a href="/auth/google/redirect" class="btn btn-success">
                                     {{ __('Login With Google') }}
                                 </a>
 
