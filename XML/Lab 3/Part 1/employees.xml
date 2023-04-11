@@ -1,0 +1,53 @@
+<?xml-stylesheet type="text/css" href="employees.css"?>
+<employees xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/iti/XML/labs/lab3/New%20folder/employees.xsd">
+	<employee>
+		<name>Muhammad</name>
+		<phones>
+			<phone type="home">035778832 -</phone>
+			<phone type="work">035881123 -</phone>
+			<phone type="mobile">01176192728</phone>
+		</phones>
+		<addresses>
+			<address>
+				<street>Abo keer</street> 
+				<buildingNumber>15</buildingNumber> 
+				<Region>Sidi Gaber</Region> 
+				<city>Alexandria</city>
+				<country>Egypt / </country>
+			</address> 
+			<address>
+				<street>Portsaied</street> 
+				<buildingNumber>4</buildingNumber> 
+				<Region>Kamp Chezar</Region> 
+				<city>Alexandria</city> 
+				<country>Egypt</country>
+			</address>
+		</addresses>
+		<email>Muhammad@gmail.com</email>
+	</employee>
+	<employee>
+		<name>Ashraf</name>
+		<phones>
+			<phone type="home">025117734 -</phone>
+			<phone type="work">026229942 -</phone>
+			<phone type="mobile">01173645382</phone>
+		</phones>
+		<addresses>
+			<address>
+				<street>7dayek el m3ady</street> 
+				<buildingNumber>10</buildingNumber> 
+				<Region>Elm3ady</Region> 
+				<city>Cairo</city> 
+				<country>Egypt / </country>
+			</address> 
+            <address>
+				<street>shobra street</street> 
+				<buildingNumber>14</buildingNumber> 
+				<Region>shobra</Region> 
+				<city>Cairo</city> 
+				<country>Egypt</country>
+			</address> 
+		</addresses>
+		<email>Ashraf@gmail.com</email>
+	</employee>
+</employees>

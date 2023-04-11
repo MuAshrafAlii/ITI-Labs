@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="employees.xsl"?>
+<employees>
+	<employee>
+		<name>Muhammad</name>
+		<phones>
+			<phone type="mobile">01176192728</phone>
+		</phones>
+		<addresses>
+			<address>
+				<street>Abo keer</street>
+				<buildingNumber>15</buildingNumber>
+				<Region>Sidi Gaber</Region>
+				<city>Alexandria</city>
+				<country>Egypt</country>
+			</address>
+		</addresses>
+		<email>Muhammad@gmail.com</email>
+	</employee>
+	<employee>
+		<name>Ashraf</name>
+		<phones>
+			<phone type="mobile">01173645382</phone>
+		</phones>
+		<addresses>
+			<address>
+				<street>7dayek el m3ady</street>
+				<buildingNumber>10</buildingNumber>
+				<Region>Elm3ady</Region>
+				<city>Cairo</city>
+				<country>Egypt</country>
+			</address>
+		</addresses>
+		<email>Ashraf@gmail.com</email>
+	</employee>
+</employees>
