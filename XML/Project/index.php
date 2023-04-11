@@ -19,7 +19,7 @@
 
 <div class="mb-3">
   <label for="name" class="form-label">Name</label>
-  <input type="text" class="form-control" name="name" id="name" required>
+  <input type="text" class="form-control" name="name" id="name">
 </div>
 
 <div class="mb-3">
@@ -39,8 +39,12 @@
 
 
 <div class="mb-3">
+  <input type="submit" class="btn btn-primary" name="action" value="prev">
+  <input type="submit" class="btn btn-primary" name="action" value="next">
   <input type="submit" class="btn btn-primary" name="action" value="search">
   <input type="submit" class="btn btn-primary" name="action" value="insert">
+  <input type="submit" class="btn btn-primary" name="action" value="update">
+  <input type="submit" class="btn btn-primary" name="action" value="delete">
 </div>
 
 
