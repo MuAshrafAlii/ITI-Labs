@@ -1,0 +1,19 @@
+<div class="registrationContainer">
+  <h1>Register</h1>
+
+  <div class="formControl">
+    <input type="text" placeholder="name" [(ngModel)]="name" />
+  </div>
+
+  <div class="error" *ngIf="name.length < 3 && name">Name is not valid</div>
+
+  <div class="formControl">
+    <input type="text" placeholder="age" [(ngModel)]="age" />
+  </div>
+
+  <div class="error" *ngIf="(+age > 40 || +age < 20) && age">
+    Age is not valid
+  </div>
+
+  <button class="addBtn" (click)="addStudentHandler()">Add</button>
+</div>
