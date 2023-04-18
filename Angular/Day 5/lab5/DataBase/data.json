@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Muhammad",
+      "age": 25,
+      "email": "Mu@gmail.com",
+      "phone": "011111111"
+    },
+    {
+      "id": 2,
+      "name": "Ahmed",
+      "age": 23,
+      "email": "Ah@gmail.com",
+      "phone": "0333333"
+    },
+    {
+      "name": "Magdi",
+      "age": "29",
+      "email": "magdi@gmail.com",
+      "phone": "07777777",
+      "id": 3
+    },
+    {
+      "name": "Eeed",
+      "age": "36",
+      "email": "eeeeeed@gmail.com",
+      "phone": "07364523",
+      "id": 4
+    }
+  ]
+}
