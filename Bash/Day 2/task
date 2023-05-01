@@ -1,0 +1,9 @@
+1-in checker.sh
+	modify function checkFloatPoint to return 0 if val is valid floating point, 1 if not
+	modify function checkEmail, to return 0 if email is valud, 1 if not
+2-In dbos.sh
+	in function insertstudent, add the float point validation call
+	in function deletestudent
+	add confirmation
+	in function updatestudent
+	
