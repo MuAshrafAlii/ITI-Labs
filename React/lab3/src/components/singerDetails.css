@@ -1,0 +1,65 @@
+.name {
+  text-align: center;
+  font-size: 32px;
+  padding: 5px;
+  font-family: monospace;
+}
+.bio {
+  text-align: center;
+  width: 30%;
+  margin: auto;
+  font-family: cursive;
+  font-size: px;
+  padding: 2%;
+}
+.albums {
+  margin-left: auto;
+}
+.image-container {
+  width: 40%;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.albums {
+  width: 50%;
+  height: 250px;
+  margin: 0px;
+}
+
+.home {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 3%;
+  font-family: sans-serif;
+  border-radius: 4px;
+  padding: 5px 10px;
+  text-decoration: underline;
+  color: black;
+}
+.home span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.home span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.home:hover span {
+  padding: 0px 20px 0px 25px;
+  background-color: #b2a4ff;
+}
+
+.home:hover span:after {
+  opacity: 1;
+  right: 0;
+}

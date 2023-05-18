@@ -1,0 +1,36 @@
+.container {
+  position: relative;
+  padding: 10px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+  padding: 0px 10px;
+  font-size: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.link {
+  color: #617a55;
+  text-decoration: none;
+}
+.link:hover {
+  color: inherit;
+}
+.cont {
+  width: 40%;
+  background-color: #b2a4ff;
+}
+
+.image {
+  border-radius: 50px;
+}
+.image:hover {
+  transition: all 1s;
+  transition-timing-function: ease-out;
+  opacity: 0.5;
+}
