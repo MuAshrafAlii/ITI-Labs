@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Muhammad",
+      "last_name": "Ashraf",
+      "gender": "Male"
+    },
+    {
+      "id": 2,
+      "first_name": "Ahmed",
+      "last_name": "Mohamed",
+      "gender": "Male"
+    }
+  ]
+}
